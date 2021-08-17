@@ -1,0 +1,49 @@
+{% extends "main/base.htm" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="POST">
+  {% csrf_token %}
+    <legend class="border-bottom mb-4">Register as a Senior!</legend>
+    <div class="row">
+      <div class="form-group col-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ userName }}" readonly>
+      </div>
+      <div class="form-group col-6">
+        <label for="bits_id">BITS ID</label>
+        <input type="text" class="form-control" id="bits_id" name="bits_id" placeholder="Eg. 2020A1PS0001P" required>
+      </div>
+      <div class="form-group  col-6">
+        <label for="campus">Campus</label>
+        <select class="form-control" id="campus" name="campus" required>
+          <option>Pilani</option>
+          <option>Goa</option>
+          <option>Hyderabad</option>
+          <option>Dubai</option>
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="branch">Branch</label>
+        <input type="text" class="form-control" id="branch" name="branch" placeholder="Eg. B.E. Chemical" required>
+      </div>
+      <div class="form-group col-6">
+        <label for="phone_number">Phone Number</label>
+        <input type="number" class="form-control" id="phone_number" name="phone_number" required>
+      </div>
+      <div class="form-group col-6">
+        <label for="fb_profile">Facebook Profile Link</label>
+        <input type="text" class="form-control" id="fb_profile" name="fb_profile">
+      </div>
+      <div class="form-group col-md-12">
+        <label for="contact_regarding">What can the aspirant contact you regarding?</label>
+        <input type="text" class="form-control" id="contact_regarding" name="contact_regarding" required>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="contact_time">When can the aspirant preferably contact you?</label>
+        <input type="text" class="form-control" id="contact_time" name="contact_time" required>
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary" style="border-radius: 25px;"><i class="fas fa-check-circle mr-2"></i>Submit</button>
+</form>
+{% endblock content %}

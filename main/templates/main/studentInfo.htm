@@ -1,0 +1,61 @@
+{% extends "main/base.htm" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+  <div class="card-header">
+    <i class="fas fa-university mr-2"></i> {{ student.campus }} Campus - Year {{ student.year }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><i class="fas fa-user-graduate mr-2"></i>{{ student.name }}</h5>
+    <p class="card-text">
+        <table class="table table-borderless">
+            <tbody>
+                {% if student.branch_string %}
+                <tr>
+                    <td><strong><i class="fas fa-graduation-cap mr-2"></i>Branch</strong></td>
+                    <td>{{ student.branch_string }}</td>
+                </tr>
+                {% endif %}
+
+                {% if student.batch %}
+                <tr>
+                    <td><strong><i class="fas fa-book-reader mr-2"></i>Admission Batch</strong></td>
+                    <td>{{ student.batch }}</td>
+                </tr>
+                {% endif %}
+
+                {% if student.phone_number %}
+                <tr>
+                    <td><strong><i class="fas fa-phone mr-2"></i>Phone Number</strong></td>
+                    <td>{{ student.phone_number }}</td>
+                </tr>
+                {% endif %}
+
+                {% if student.contact_regarding %}
+                <tr>
+                    <td><strong><i class="fas fa-question-circle mr-2"></i>You can contact me for </strong></td>
+                    <td>{{ student.contact_regarding }}</td>
+                </tr>
+                {% endif %}
+
+                {% if student.contact_time %}
+                <tr>
+                    <td><strong><i class="fa fa-clock mr-2"></i>Preferred time of contact</strong></td>
+                    <td>{{ student.contact_time }}</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </p>
+    Connect with me on &nbsp;
+    {% if student.bits_email %}
+        <a href="mailto:{{ student.bits_email }}" target="_blank" class="btn btn-info mr-2" style="border-radius: 25px;"><i class="fa fa-envelope mr-2" style="color: white;"></i>Email</a>
+    {% endif %}
+    {% if student.fb_profile %}
+        <a href="{{ student.fb_profile }}" target="_blank" class="btn btn-info" style="border-radius: 25px;"><i class="fa fa-facebook mr-2" style="color: white;"></i>Facebook</a>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

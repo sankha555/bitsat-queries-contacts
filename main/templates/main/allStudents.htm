@@ -1,0 +1,29 @@
+{% extends "main/base.htm" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <h2>All Seniors</h2>
+    <table id="studentsTable" class="table table-bordered table-striped table-lg">
+        <thead class="thead-dark">
+            <th class="text-center">Batch</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Campus</th>
+            <th class="text-center">Branch</th>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr class='student-row'role="button" title="Click to see more details">
+                <a href="{% url 'student_info' student.student_slug %}">
+                    <td>{{ student.batch }}</td>
+                    <td><a href="{% url 'student_info' student.student_slug %}">{{ student.name }}</a></td>
+                    <td>{{ student.campus }}</td>
+                    <td>{{ student.branch_string }}</td>
+                </a>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

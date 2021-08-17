@@ -1,0 +1,46 @@
+{% extends "main/base.htm" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+  body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRns5ZsqUq986RDetuCcCzwaG14MaBHilekkA&usqp=CAU");
+    background-repeat:no-repeat;
+    background-size:111%;
+  }
+
+  .jumbotron {
+    opacity: 0.9;
+  }
+</style>
+
+{% if user.is_authenticated and student %}
+<div class="jumbotron my-auto">
+  <h1 class="display-4">Hello there! :))</h1>
+  <p class="lead">
+    We know it can be a daunting task to find seniors at BITS from a particular discipline
+    and that too having similar interests as ourself. To help aspiring BITSians with this, we present the official BITSAT Queries Contact Finder.
+  </p>
+  <hr class="my-4">
+  <p>
+    Click below to find the list of seniors, you can find your name there too :). To narrow down you search, use the filters
+    provided and click on a person's profile to see more details. 
+  </p>
+  <a class="btn btn-primary btn-lg" href="{% url 'all_students' %}" style="border-radius: 25px;"><i class="fa fa-comments mr-2"></i>Find Seniors</a>
+</div>
+{% else %}
+<div class="jumbotron my-auto">
+  <h1 class="display-4">Hello future BITSians! :))</h1>
+  <p class="lead">
+    We know it can be a daunting task to find seniors at BITS from a particular discipline
+    having similar interests as you. To help you guys with this, we present the official BITSAT Queries Contact Finder.
+  </p>
+  <hr class="my-4">
+  <p>
+    Click below to find the list of seniors whom you can contact. To narrow down you search, use the filters
+    provided and get in touch with a BITSian by clicking on their profile! 
+  </p>
+  <a class="btn btn-primary btn-lg" href="{% url 'all_students' %}" style="border-radius: 25px;"><i class="fa fa-comments mr-2"></i>Find Seniors</a>
+</div>
+{% endif %}
+
+{% endblock content %}
