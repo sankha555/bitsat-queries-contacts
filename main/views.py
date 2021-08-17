@@ -24,8 +24,12 @@ def home(request):
         context = {}
     return render(request, 'main/home.htm', context)
 
-@login_required
+
 def see_all_students(request):
+    if not request.user.is_authenticated:
+        messages.error(request, f'You must sign in to the site first in order to see the list of seniors')
+        return redirect('login')
+    
     students = Student.objects.filter(private_mode = False)
     
     context = {
@@ -35,8 +39,11 @@ def see_all_students(request):
     return render(request, 'main/allStudents.htm', context)
 
 
-@login_required
 def see_student_profile(request, student_slug):
+    if not request.user.is_authenticated:
+        messages.error(request, f'You must sign in to the site first in order to see the students information')
+        return redirect('login')
+    
     student = get_object_or_404(Student, student_slug = student_slug)
     
     if student is None:
