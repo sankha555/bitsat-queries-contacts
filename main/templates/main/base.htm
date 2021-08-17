@@ -124,6 +124,16 @@
               fixedHeader: true
           } );
       } );
+
+      function copyEmail(copyText) {
+        const el = document.createElement('textarea');
+        el.value = copyText;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        alert("Email copied to clipboard! : " + copyText)
+      }
     </script>
 
   </body>

@@ -50,7 +50,7 @@
     </p>
     Connect with me on &nbsp;
     {% if student.bits_email %}
-        <a href="mailto:{{ student.bits_email }}" target="_blank" class="btn btn-info mr-2" style="border-radius: 25px;"><i class="fa fa-envelope mr-2" style="color: white;"></i>Email</a>
+        <a onclick="copyEmail('{{ student.bits_email }}')" class="btn btn-info mr-2" style="border-radius: 25px;"><i class="fa fa-envelope mr-2" style="color: white;"></i>Email</a>
     {% endif %}
     {% if student.fb_profile %}
         <a href="{{ student.fb_profile }}" target="_blank" class="btn btn-info" style="border-radius: 25px;"><i class="fa fa-facebook mr-2" style="color: white;"></i>Facebook</a>
