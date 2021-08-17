@@ -101,3 +101,5 @@ class Aspirant(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField("Name", max_length=200, null=True, blank=True)
     
+    def __str__(self):
+        return self.name
