@@ -93,6 +93,9 @@ class Student(models.Model):
             
         except:
             pass
+        
+    def __str__(self):
+        return self.name
     
 class Aspirant(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
