@@ -37,7 +37,7 @@ class Student(models.Model):
     is_dualite = models.BooleanField("Is Dualite", default=False, null=True, blank=True)
     
     phone_number = models.CharField("Phone Number", max_length=50, null=True, blank=True)
-    fb_profile = models.CharField("Facebook Profile Link", max_length=50, null=True, blank=True)
+    fb_profile = models.CharField("Facebook Profile Link", max_length=1000, null=True, blank=True)
     
     contact_regarding = models.TextField("You can contact the student regarding", max_length=5000, null=True, blank=True)
     contact_time = models.TextField("You can contact the student at this time", max_length=5000, null=True, blank=True)
@@ -53,6 +53,7 @@ class Student(models.Model):
     
     def extract_branches(self):
         bits_id = self.bits_id
+        self.calculate_student_slug()
         
         try:
             if bits_id[0] == "F":
@@ -90,7 +91,6 @@ class Student(models.Model):
                     phone_number = phone_number[:-2]
                     self.phone_number = phone_number
             
-            self.calculate_student_slug()
         except:
             pass
     
