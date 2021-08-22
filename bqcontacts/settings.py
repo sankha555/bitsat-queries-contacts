@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r&51imt!@@ej9oq7i&a&d3_p2mv2%x8cwa!(4-0xdn-7_&fya$'
+SECRET_KEY = '~'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -167,9 +167,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STUDENTS_SHEET = BASE_DIR / 'students.xls'
 
 django_heroku.settings(locals())
-
-key = '308204100349-t1apeika6n79fsdh0u6ka0im1dqvn44a.apps.googleusercontent.com'
-secret = 'PRnueRk0pUYIw8YbqzTwYvaQ'
-
-key1 = '1051737671816-carruhaf5n9j5rfjct6tqcuimggb0257.apps.googleusercontent.com'
-secret1 = 'HpFGJNzaYWYpmMtwIe6aPbmU'
